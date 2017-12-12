@@ -1,0 +1,261 @@
+// Global Styles
+$primary-accent: rgb(185, 11, 11);
+$second-accent: rgb(118, 14, 14);
+
+html {
+    font-size: 10px;
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    background-image: url(assets/fingerprints2.png);
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;  
+    padding-top: 5vh;
+}
+img {
+    max-width: 100%;
+}
+h1 {
+    font-family: QuadratSerial;// sans-serif; //only loads if no backup...
+	font-weight: normal; 
+    font-style: normal;
+    text-transform: uppercase;
+    font-size:4rem;
+    color: rgb(255, 255, 255);
+}
+.buttonStyle {
+    background: red;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: white;
+    text-transform: uppercase;
+    background: transparent;
+    letter-spacing: 2px;
+    font-size: 2rem;
+     &:hover, &:focus {
+        background:white;
+        color:black;
+     }
+}
+input[type="radio"]:checked + label  {
+    background:radial-gradient(white,#141e93,#0f1128,transparent);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+}
+
+.blueShadow {
+	text-shadow: -8px 0px 0px #0f1128,
+		-10px 0px 8px rgb(50, 152, 234),
+		-14px 0px 8px rgba(50, 152, 234, 0.3),
+		-10px -8px 8px rgba(50, 152, 234, 0.6),
+		-10px 8px 8px rgba(50, 152, 234, 0.6);
+}
+.redShadow {
+	text-shadow: -5px 0px 0px #0f1128,
+		-10px 0px 8px rgb(143, 14, 18),
+		-14px 0px 8px rgba(143, 14, 18, 0.3),
+		-10px -8px 8px rgba(181, 2, 8, 0.6),
+		-10px 8px 8px rgba(143, 14, 18, 0.6);
+}
+p {
+    font-size:2rem;
+    color: #ffffff;
+    text-shadow: -2px 1px 1px #403f3f,
+}
+form, header {
+    background: transparent;
+    //border:solid 3px black;
+    border-radius: 50px;
+    color: white;
+    min-height: 85vh; 
+}
+header {
+   // background: transparent;
+    background-image: url(assets/tvSet.png);
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size:contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    margin: 3vh auto;
+    //padding-top: 65%;
+    .title {
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        transform: translate(40%,-50%);
+    }
+    p {
+        padding-top: 2vh;
+        color: white;
+        
+    }
+    button {
+        width: 125px;
+        height: 50px;
+        margin: 0px auto 0px auto;
+        font-size: 2.5rem;
+    }
+}
+form {
+    max-width: 80%;
+    margin: 0 auto;
+}
+.question {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 28vh;
+    border: 15px solid black;
+    border-radius: 50px;
+    position: relative;
+    input {
+        visibility: hidden;
+        position: absolute;
+    }
+    p {
+        width: 30%;
+        font-size: 2.8rem;
+    }
+}
+.question:nth-child(even){
+    background:$primary-accent;
+}
+.question:nth-child(odd){
+    background: $second-accent;
+}
+.left, .right {
+    position: absolute;
+    img{
+        width: 175px;
+    }  
+}
+.left {
+    left: 0px;
+    transform: translate(-50%,0%);
+}
+.right {
+    right: 0px;
+    transform: translate(50%,0%);
+}
+.secret {
+    display: none;
+}
+.suggestedShow {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:space-around;
+    border-radius: 50px;
+    min-height: 80vh;
+    h1 {
+        color: rgb(255, 255, 255);
+        font-family: 'Raleway', sans-serif;
+        padding: 25px, 25px 15px, 25px;  
+    }
+    .content {
+        display: flex;
+        justify-content:space-between;
+        img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50px;
+        object-fit: cover;
+        border: 3px white solid;
+        }
+        p{
+            width: 50%;
+            text-align: left;
+            line-height: 2.5rem;
+        }
+    }
+}
+.suggestedShow input.buttonStyle {
+    margin:10px;
+}
+
+.question p.versus {
+    width: 15%;
+}
+
+//media queries
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+.question {
+    flex-direction: column;
+    height: auto;
+
+    .left {
+        left: 0px;
+        top:0;
+        transform: translate(-45%,0%);
+    }
+    .right {
+        right: 0px;
+        bottom:0;
+        transform: translate(45%,0%);
+    }
+}
+ .suggestedShow  .content {
+        display:inline-block;
+      
+        img, p {
+            width: 100%;
+            display:inline-block;
+        }
+    }
+}
+@media (max-width:600px ) and (orientation: landscape){
+    h1 {
+        font-size: 3rem;
+    }
+    header {
+        p {
+            display: none;
+        }
+    }
+}
+/* small phones and down */
+@media (max-width: 480px) {
+    //page 1 issues
+    main.wrapper {
+        padding-top:0;
+    }
+    .question {
+        padding:100px 10px;
+        margin: 65px auto;
+        p {
+        width:90%; 
+        }
+        .left {
+        left: 10%;
+        top:-50px;
+        transform: translate(0%,0%);
+        }
+        .right {
+            right: 10%;
+            bottom:-50px;
+            transform: translate(0%,0%);
+        }
+    }
+    .question p.versus {
+        margin: 0;
+    }
+    header {
+        p {
+            display: none;
+        }
+    }
+}
